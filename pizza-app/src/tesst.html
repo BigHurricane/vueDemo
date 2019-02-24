@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+     #ul1 {margin: 100px auto 0; padding: 0;}
+     li {float: left; margin:0 0 10px 10px; list-style:none; border: 1px solid black;}
+     img {width: 290px; height: 200px; display: block;}
+ </style>
+<body>
+<img src="assets/logo.png" alt="" id="img1" style="width:300px">
+</body>
+<script>
+    var oImg = document.getElementById('img1');
+    var oImage = new Image();
+    var arr = [
+    'assets/logo.png',
+        'assets/logo.png',
+        'assets/logo.png'
+    ];
+    var iCur = 0;
+    var i = 0;
+    xunlei();
+    oImg.onclick = function() {
+                i++;
+                if (i < arr.length) {
+                         oImg.src = arr[i];
+                     }
+            };
+    function xunlei() {
+                 oImage.src = arr[iCur];
+               oImage.onload = function() {
+                         iCur++;
+                        if (iCur < arr.length) {
+                                xunlei();    //递归
+                             }
+                      document.title = iCur + ' / ' + arr.length;
+                     }
+          }
+</script>
+</html>
